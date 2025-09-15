@@ -1,10 +1,20 @@
 @import "tailwindcss";
 
+:root {
+    --gradient-bg: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-primary-orange: #ea580c;
+    --color-hover-orange: #c94a0a;
+    --color-orange-border: #ff7300;
+    --color-yellow: rgb(250, 204, 21);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+}   
 
 html, body {
     height: 100%;
