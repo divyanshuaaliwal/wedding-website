@@ -79,7 +79,7 @@ const HeroSectionForm = () => {
                 />
 
                 <button type="submit" className={styles.button}>
-                    Get Invited →
+                    Register →
                 </button>
             </form>
         </div>

@@ -1,49 +1,102 @@
-"use client";
+// components/Footer.jsx
+import React from 'react';
+import Link from 'next/link';
+import {
+    Facebook,
+    Twitter,
+    Instagram,
+    Mail,
+    Phone,
+    MapPin,
+    Video,
+    Star,
+    Award,
+    Home,
+    User,
+    CalendarCheck,
+    ThumbsUp
+} from 'lucide-react';
 
-import Link from "next/link";
-import styles from "./Footer.module.css";
-import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import styles from './Footer.module.css';
 
-export default function Footer() {
-  return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
-        {/* Logo & About */}
-        <div className={styles.about}>
-          <h2 className={styles.logo}>Shaadi</h2>
-          <p>
-            Connecting hearts and building meaningful relationships. Your love story starts here.
-          </p>
-        </div>
+const iconMap = {
+    "Home": <Home size={16} className={styles.iconInline} />,
+    "About Us": <User size={16} className={styles.iconInline} />,
+    "Events": <CalendarCheck size={16} className={styles.iconInline} />,
+    "Contact": <Phone size={16} className={styles.iconInline} />
+};
 
-        {/* Quick Links */}
-        <div className={styles.links}>
-          <h3>Quick Links</h3>
-          <ul>
-            <li><Link href="/stories">Success Stories</Link></li>
-            <li><Link href="/about">About Us</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
-            <li><Link href="/faq">FAQ</Link></li>
-          </ul>
-        </div>
+const iconMapCustomerCenter = {
+    "Customer Video": <Video size={16} className={styles.iconInline} />,
+    "Customer Photos": <Star size={16} className={styles.iconInline} />,
+    "Reviews": <ThumbsUp size={16} className={styles.iconInline} />,
+    "Awards & Certifications": <Award size={16} className={styles.iconInline} />
+};
 
-        {/* Contact */}
-        <div className={styles.contact}>
-          <h3>Contact Us</h3>
-          <p>Email: support@shaadi.com</p>
-          <p>Phone: +91 123 456 7890</p>
-          <div className={styles.socials}>
-            <Link href="#"><Facebook size={20} /></Link>
-            <Link href="#"><Instagram size={20} /></Link>
-            <Link href="#"><Twitter size={20} /></Link>
-            <Link href="#"><Linkedin size={20} /></Link>
-          </div>
-        </div>
-      </div>
+function Footer() {
 
-      <div className={styles.bottom}>
-        <p>© {new Date().getFullYear()} Shaadi.com. All rights reserved.</p>
-      </div>
-    </footer>
-  );
+    return (
+        <footer className={styles.footer}>
+            <div className={styles.container}>
+                <div className={styles.grid}>
+                    {/* About */}
+                    <div className={styles.section}>
+                        <h4 className={styles.title}>SindhiMaitryuen.com</h4>
+                        <p className={styles.text}>
+                            A trusted platform for Sindhi families to connect, interact, and explore matrimonial opportunities in a safe and welcoming environment.
+                        </p>
+                        <div className={styles.socialIcons}>
+                            <a href="#" aria-label="Facebook" className={styles.icon}><Facebook size={20} /></a>
+                            <a href="#" aria-label="Twitter" className={styles.icon}><Twitter size={20} /></a>
+                            <a href="#" aria-label="Instagram" className={styles.icon}><Instagram size={20} /></a>
+                        </div>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div className={styles.section}>
+                        <h4 className={styles.title}>Quick Links</h4>
+                        <ul className={styles.linkList}>
+                            <li><Link href="/" className={styles.link}>{iconMap["Home"]} Home</Link></li>
+                            <li><Link href="/about" className={styles.link}>{iconMap["About Us"]} About Us</Link></li>
+                            <li><Link href="/events" className={styles.link}>{iconMap["Events"]} Events</Link></li>
+                            <li><Link href="/contact" className={styles.link}>{iconMap["Contact"]} Contact</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Customer Center */}
+                    <div className={styles.section}>
+                        <h4 className={styles.title}>Customer Center</h4>
+                        <ul className={styles.linkList}>
+                            <li><Link href="/videos" className={styles.link}>{iconMapCustomerCenter["Customer Video"]} Customer Video</Link></li>
+                            <li><Link href="/photos" className={styles.link}>{iconMapCustomerCenter["Customer Photos"]} Customer Photos</Link></li>
+                            <li><Link href="/reviews" className={styles.link}>{iconMapCustomerCenter["Reviews"]} Reviews</Link></li>
+                            <li><Link href="/awards" className={styles.link}>{iconMapCustomerCenter["Awards & Certifications"]} Awards & Certifications</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Contact */}
+                    <div className={styles.section}>
+                        <h4 className={styles.title}>Contact</h4>
+                        <ul className={styles.infoList}>
+                            <li>
+                                <MapPin size={18} className={styles.iconInline} /> Verma Hall, Devshree Talkies Complex, Loha Mandi Road, Indore 452012
+                            </li>
+                            <li>
+                                <Phone size={18} className={styles.iconInline} /> +91 96857 40080
+                            </li>
+                            <li>
+                                <Mail size={18} className={styles.iconInline} /> info@sindhimaitryuen.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className={styles.bottom}>
+                    <p>&copy; 2025 SindhiMaitryuen.com. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    );
 }
+
+export default Footer;
