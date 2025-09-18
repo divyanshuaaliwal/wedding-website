@@ -73,7 +73,7 @@ export default function ShaadiExperience() {
                         cardsData.map( (card) => (
                             <div key={card.id} className={styles.card}>
                                 <div className={styles.icon}>
-                                    <Image src={card.image} alt={card.alt} />
+                                    <Image className={styles.cardImage} src={card.image} alt={card.alt} />
                                 </div>
                                 <h3>{card.title}</h3>
                                 <p>{card.description}</p>

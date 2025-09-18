@@ -31,12 +31,16 @@ export default function Navbar() {
 
 
 
-    const navLinks = [
-        { href: "/", label: "Home" },
-        { href: "/about", label: "About" },
-        { href: "/events", label: "Events" },
-        { href: "/contact", label: "Contact" },
-    ];
+const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/events", label: "Events" },
+    { href: "/services", label: "Services" },
+    { href: "/sindhisociety", label: "Sindhi-Society" },
+    { href: "/ourteam", label: "OurTeam" },
+    { href: "/contact", label: "Contact US" }
+];
+
 
 
     return (
@@ -86,13 +90,13 @@ export default function Navbar() {
 
                                 <div className={styles.authButtons}>
                                     <Link
-                                        href="/signin"
-                                        className={styles.signInButton}
+                                        href="/register"
+                                        className={styles.registerButton}
                                     >
-                                        Sign In
+                                        Register
                                     </Link>
                                     <Link
-                                        href="/signup"
+                                        href="/login"
                                         className={styles.loginButton}
                                     >
                                         Login
