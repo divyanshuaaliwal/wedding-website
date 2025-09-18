@@ -145,9 +145,10 @@
 .field select:focus,
 .field textarea:focus,
 .field input[type='file']:focus {
-    outline: none;       
-    box-shadow: none;    
+    outline: none;
+    box-shadow: none;
 }
+
 
 .field input,
 .field select,
@@ -155,25 +156,52 @@
     width: 100%;
     padding: 0.6rem 0.7rem;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.5); /* subtle border */
-    background: rgba(255, 255, 255, 0.1); /* transparent */
-    color: #fff; /* white text */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* subtle border */
+    background: rgba(255, 255, 255, 0.1);
+    /* transparent */
+    color: #fff;
+    /* white text */
     font-size: 0.95rem;
     box-sizing: border-box;
-    resize: vertical; /* textarea can resize vertically */
+    resize: vertical;
+    /* textarea can resize vertically */
 }
 
 .field input::placeholder,
 .field textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6); /* semi-transparent placeholder */
+    color: rgba(255, 255, 255, 0.6);
+    /* semi-transparent placeholder */
 }
 
 .field select option {
-    background: #111; /* makes dropdown options visible */
+    background: #111;
+    /* makes dropdown options visible */
     color: #fff;
 }
 
-/* fieldset address grid */
+.images {
+  display: flex;
+  flex-direction: column; /* stack label and preview vertically */
+  gap: 0.75rem;           /* space between label and previews */
+  grid-column: 1 / -1;    /* span full width in grid */
+}
+
+.previewGrid {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.previewImg {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Address group */
 .group {
     border: none;
     padding: 0;
@@ -186,8 +214,10 @@
     color: rgba(255, 255, 255, 0.9);
     font-weight: 600;
     margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
 
+/* Address grid for inputs */
 .addrGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -199,6 +229,28 @@
         grid-template-columns: 1fr;
     }
 }
+
+.addrGrid input {
+    width: 100%;
+    padding: 0.6rem 0.7rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+.addrGrid input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.addrGrid input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
 
 /* Controls */
 .controls {

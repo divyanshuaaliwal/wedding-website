@@ -4,9 +4,9 @@ import { useState } from 'react';
 import styles from './register.module.css'; // keep your css module
 
 export default function RegisterForm() {
-    
+
     const [form, setForm] = useState({
-      
+
         fullName: '',
         mobile: '',
         email: '',
@@ -37,27 +37,27 @@ export default function RegisterForm() {
         tob: '',
         pob: '',
         education: '',
-        specialization: '',   
+        specialization: '',
         profession: '',
         companyName: '',
         income: '',
-        commercialAddress: '', 
-        color: '',             
+        commercialAddress: '',
+        color: '',
         height: '',
-        weight: '',            
-        disease: '',           
+        weight: '',
+        disease: '',
         familyMembers: '',
         nukh: '',
-        aakay: '',             
+        aakay: '',
         origin: '',
-        jointIncome: '',       
-        house: '',             
-        vehicle: '',           
-        ancestralBusiness: '', 
-        ancestralBusinessAddress: '', 
-        ancestralBusinessMobile: '',  
+        jointIncome: '',
+        house: '',
+        vehicle: '',
+        ancestralBusiness: '',
+        ancestralBusinessAddress: '',
+        ancestralBusinessMobile: '',
         maritalStatus: '',
-        comments: ''           
+        comments: ''
     });
 
     const [step, setStep] = useState(0);
@@ -68,9 +68,12 @@ export default function RegisterForm() {
         const { name, value, files, type } = e.target;
         setForm(prev => ({
             ...prev,
-            [name]: type === 'file' ? (files && files[0]) : value
+            [name]: type === 'file'
+                ? (files ? Array.from(files).slice(0, 5) : []) // limit 5 photos
+                : value
         }));
     }
+
 
     function handleNext(e) {
         e.preventDefault();
@@ -91,7 +94,7 @@ export default function RegisterForm() {
         <div className={styles.pageBg}>
             <div className={styles.overlay} />
             <div>
-               
+
                 <video autoPlay muted loop playsInline className={styles.video}>
                     <source src="/189020-884234925_large.mp4" type="video/mp4" />
                 </video>
@@ -102,9 +105,9 @@ export default function RegisterForm() {
                         <div className={styles.steps}>
                             {
                                 steps.map((s, i) => (
-                                <div key={s} className={`${styles.step} ${i === step ? styles.active : ''}`}>
-                                    <strong>{s}</strong>
-                                </div>
+                                    <div key={s} className={`${styles.step} ${i === step ? styles.active : ''}`}>
+                                        <strong>{s}</strong>
+                                    </div>
                                 ))
                             }
                         </div>
@@ -139,10 +142,34 @@ export default function RegisterForm() {
                     {/* Step 2: Personal */}
                     {step === 1 && (
                         <>
-                            <label className={styles.fieldFull}>
-                                <span>Upload Photo</span>
-                                <input type="file" name="photo" onChange={handleChange} accept="image/*" />
-                            </label>
+                            <div className={styles.images}>
+                               
+                                <label className={styles.fieldFull}>
+                                    <span>Upload Photos (4–5)</span>
+                                    <input
+                                        type="file"
+                                        name="photo"
+                                        onChange={handleChange}
+                                        accept="image/*"
+                                        multiple
+                                    />
+                                </label>
+
+                                {/* ✅ Show image previews */}
+                                {form.photo && form.photo.length > 0 && (
+                                    <div className={styles.previewGrid}>
+                                        {form.photo.map((file, idx) => (
+                                            <img
+                                                key={idx}
+                                                src={URL.createObjectURL(file)}
+                                                alt={`preview-${idx}`}
+                                                className={styles.previewImg}
+                                            />
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+
 
                             <fieldset className={styles.group}>
                                 <legend>Permanent Address</legend>
@@ -274,7 +301,7 @@ export default function RegisterForm() {
                     {/* Step 3: Family */}
                     {step === 2 && (
                         <>
-                             <label className={styles.field}>
+                            <label className={styles.field}>
                                 <span>Family Members</span>
                                 <textarea name="familyMembers" value={form.familyMembers} onChange={handleChange}></textarea>
                             </label>

@@ -36,8 +36,8 @@ const navLinks = [
     { href: "/about", label: "About" },
     { href: "/events", label: "Events" },
     { href: "/services", label: "Services" },
-    { href: "/sindhisociety", label: "Sindhi-Society" },
-    { href: "/ourteam", label: "OurTeam" },
+    { href: "/sindhisociety", label: "Sindhi Society" },
+    { href: "/ourteam", label: "Our Team" },
     { href: "/contact", label: "Contact US" }
 ];
 
